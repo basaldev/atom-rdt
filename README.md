@@ -1,4 +1,4 @@
-# redux dev tools for [js-atom v2]()
+# redux dev tools for [js-atom v2](https://github.com/exodevhub/js-atom)
 
 ```ts
 import atom from 'js-atom';
