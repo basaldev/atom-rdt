@@ -1,0 +1,14 @@
+{
+  "name": "atom-rdt",
+  "version": "0.0.1",
+  "description": "js-atom for redux dev tools",
+  "main": "devStore.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "redux": "^4.0.1"
+  }
+}
