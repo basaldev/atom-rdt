@@ -6,16 +6,14 @@ const rootReducer = (state = {}, action) => {
   return Object.assign({}, state, action.payload);
 };
 
-const store = createStore(rootReducer, composeEnhancers());
+const actionCreator = (type, payload) => ({
+  type,
+  payload
+});
 
-const updateStore = (newState, key) => {
-  return {
-    type: key,
-    payload: newState
-  };
-};
+const store = createStore(rootReducer, composeEnhancers());
 
 export default {
   store,
-  updateStore
+  actionCreator
 };

@@ -1,4 +1,4 @@
 import Redux from './redux';
-export default function atomDevTools( key, ref, old, newState) {
-  Redux.store.dispatch(Redux.updateStore(newState, key));
+export default function atomDevTools(key, ref, old, newState, action) {
+  Redux.store.dispatch(Redux.actionCreator(action, newState));
 }
