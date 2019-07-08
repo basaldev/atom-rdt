@@ -1,6 +1,6 @@
 {
   "name": "atom-rdt",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "js-atom for redux dev tools",
   "main": "devStore.js",
   "scripts": {
