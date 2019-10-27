@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "logrocket": "^1.0.3",
     "redux": "^4.0.1"
   }
 }
