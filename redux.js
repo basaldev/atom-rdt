@@ -23,6 +23,10 @@ const composeEnhancers = () => {
     return compose(applyMiddleware(LogRocket.reduxMiddleware()));
   }
 
+  if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
+    return window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+  }
+
   return compose;
 };
 
