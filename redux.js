@@ -1,18 +1,29 @@
 import { compose, createStore, applyMiddleware } from "redux";
 import LogRocket from "logrocket";
 
-const initLogRocket = apiKey => {
-  LogRocket.init(apiKey);
+const initLogRocket = (apiKey, version = "0.0.0") => {
+  if (apiKey) {
+    LogRocket.init(apiKey, {
+      release: version
+    });
+  }
 };
 
 const composeEnhancers = () => {
-  if (typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ !== "undefined") {
+  if (
+    typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ !== "undefined" &&
+    LogRocket._isInitialized
+  ) {
     return compose(
       applyMiddleware(LogRocket.reduxMiddleware()),
       window["__REDUX_DEVTOOLS_EXTENSION__"]()
     );
   }
-  return compose(applyMiddleware(LogRocket.reduxMiddleware()));
+  if (LogRocket._isInitialized) {
+    return compose(applyMiddleware(LogRocket.reduxMiddleware()));
+  }
+
+  return compose;
 };
 
 const rootReducer = (state = {}, action) => {

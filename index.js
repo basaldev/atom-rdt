@@ -1,7 +1,7 @@
 import Redux from "./redux";
 
-export function init(apiKey) {
-  Redux.initLogRocket(apiKey);
+export function init(apiKey, version) {
+  Redux.initLogRocket(apiKey, version);
 }
 
 export default function atomDevTools(key, ref, old, newState, action) {
