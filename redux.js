@@ -10,21 +10,16 @@ const initLogRocket = (apiKey, version = "0.0.0") => {
 };
 
 const composeEnhancers = () => {
-  if (
-    typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ !== "undefined" &&
-    LogRocket._isInitialized
-  ) {
+  const reduxDevToolsInstalled =
+    typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ !== "undefined";
+  if (reduxDevToolsInstalled && LogRocket._isInitialized) {
     return compose(
       applyMiddleware(LogRocket.reduxMiddleware()),
       window["__REDUX_DEVTOOLS_EXTENSION__"]()
     );
   }
-  if (LogRocket._isInitialized) {
+  if (LogRocket._isInitialized && !reduxDevToolsInstalled) {
     return compose(applyMiddleware(LogRocket.reduxMiddleware()));
-  }
-
-  if (typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ !== "undefined") {
-    return window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   }
 
   return compose;
