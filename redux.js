@@ -22,6 +22,10 @@ const composeEnhancers = () => {
     return compose(applyMiddleware(LogRocket.reduxMiddleware()));
   }
 
+  if (!LogRocket._isInitialized && reduxDevToolsInstalled) {
+    return compose(window["__REDUX_DEVTOOLS_EXTENSION__"]());
+  }
+
   return compose;
 };
 
