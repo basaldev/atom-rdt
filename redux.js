@@ -26,7 +26,7 @@ const composeEnhancers = () => {
     return compose(window["__REDUX_DEVTOOLS_EXTENSION__"]());
   }
 
-  return compose;
+  return compose(applyMiddleware(LogRocket.reduxMiddleware()));
 };
 
 const rootReducer = (state = {}, action) => {
