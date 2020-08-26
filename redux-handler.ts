@@ -11,18 +11,18 @@ const initLogRocket = (apiKey, version = "0.0.0") => {
 
 const composeEnhancers = () => {
   const reduxDevToolsInstalled =
-    typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ !== "undefined";
-  if (reduxDevToolsInstalled && LogRocket._isInitialized) {
+    typeof window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] !== "undefined";
+  if (reduxDevToolsInstalled && (LogRocket as any)._isInitialized) {
     return compose(
       applyMiddleware(LogRocket.reduxMiddleware()),
       window["__REDUX_DEVTOOLS_EXTENSION__"]()
     );
   }
-  if (LogRocket._isInitialized && !reduxDevToolsInstalled) {
+  if ((LogRocket as any)._isInitialized && !reduxDevToolsInstalled) {
     return compose(applyMiddleware(LogRocket.reduxMiddleware()));
   }
 
-  if (!LogRocket._isInitialized && reduxDevToolsInstalled) {
+  if (!(LogRocket as any)._isInitialized && reduxDevToolsInstalled) {
     return compose(window["__REDUX_DEVTOOLS_EXTENSION__"]());
   }
 
