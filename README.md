@@ -1,12 +1,13 @@
 # redux dev tools for [js-atom v2](https://github.com/exodevhub/js-atom)
 
+# Breaking Change:
+
+As of version 2, Log Rocket support has been removed.
+
 ```ts
 import atom from 'js-atom';
-import atomReduxDevTools, { init } from 'atom-rdt';
+import atomReduxDevTools from 'atom-rdt';
 const APP_VERSION = 1.0.1
-// Optional  config
-init('logrocketApiKey', APP_VERSION);
-
 // Setup
 const store = createAtom({});
 store.addWatch('rdt-watcher', atomReduxDevTools);
