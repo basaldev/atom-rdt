@@ -1,8 +1,7 @@
 # redux dev tools for [js-atom v2](https://github.com/exodevhub/js-atom)
 
 # Breaking Change:
-
-As of version 2, Log Rocket support has been removed.
+#### As of version 2, Log Rocket support has been removed.
 
 ```ts
 import atom from 'js-atom';
